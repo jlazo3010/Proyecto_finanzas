@@ -383,6 +383,12 @@ def agregar_gasto():
         "Distribucion semanas": distribucion_semanas
     })
 
+ def eliminar_ingreso(index):
+    del st.session_state.ingresos[index]
+
+def eliminar_gasto(index):
+    del st.session_state.gastos[index]
+
 ## INTEN   
 def reset_form():
     """Reinicia los campos del formulario de gastos y marca la bandera para limpiar visualmente."""
@@ -549,6 +555,13 @@ if st.session_state.ingresos:
 
 else:
     st.info("Aún no has registrado ingresos.")
+
+st.markdown("### Eliminar ingreso")
+for i, ingreso in enumerate(st.session_state.ingresos):
+    st.write(f"{i+1}. {ingreso['Nombre']} - ${ingreso['Monto']:,.2f}")
+    if st.button(f"Eliminar ingreso {i+1}", key=f"eliminar_ingreso_{i}"):
+        eliminar_ingreso(i)
+        st.rerun()
     
 # ---------- GASTOS REGISTRADOS ----------
 st.subheader("💸 Gastos registrados")
@@ -580,6 +593,13 @@ if st.session_state.gastos:
         st.info("No hay gastos con distribución personalizada.")
 else:
     st.info("Aún no has registrado gastos")
+
+st.markdown("### Eliminar gasto")
+for i, gasto in enumerate(st.session_state.gastos):
+    st.write(f"{i+1}. {gasto['Nombre']} - ${gasto['Monto']:,.2f}")
+    if st.button(f"Eliminar gasto {i+1}", key=f"eliminar_gasto_{i}"):
+        eliminar_gasto(i)
+        st.rerun()
 
 # ---------- FLUJO MENSUAL POR SEMANAS ----------
 st.subheader("📊 Flujo Financiero Mensual (Cascada)")
