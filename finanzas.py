@@ -383,7 +383,7 @@ def agregar_gasto():
         "Distribucion semanas": distribucion_semanas
     })
 
- def eliminar_ingreso(index):
+def eliminar_ingreso(index):
     del st.session_state.ingresos[index]
 
 def eliminar_gasto(index):
