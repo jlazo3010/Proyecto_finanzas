@@ -16,6 +16,57 @@ st.title("💸 Planificador Financiero Mensual 💸")
 
 # ---------- FUNCIONES DE UTILIDAD ----------
 
+st.markdown("""
+    <style>
+    .stButton>button {
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 0.5em 1em;
+    }
+            
+    /* Cambiar el fondo del contenedor principal del formulario */
+    div[data-testid="stForm"] {
+        background-color: #002b54; /* Color de fondo */
+        padding: 20px;              /* Padding alrededor del formulario */
+        border-radius: 10px;        /* Esquinas redondeadas */
+    }
+
+    h1, h2, h3, h4, h5, h6, h7 {
+        color: white !important;
+    }
+            
+    /* Personalizar los campos del formulario */
+    .stTextInput, .stNumberInput, .stDateInput, .stSelectbox, .stCheckbox{
+        background-color: #0056b1; /* Fondo blanco para los inputs */
+        border: 2px solid #ffffff; /* Borde gris */
+        border-radius: 8px;        /* Esquinas redondeadas */
+        padding: 10px;              /* Padding interno */
+        padding-bottom: 20px;
+    }
+            
+    /* Personalizar los campos del formulario */
+    .stCheckbox{
+        background-color: #47a1ff; /* Fondo blanco para los inputs */
+        border: 2px solid #ffffff; /* Borde gris */
+        border-radius: 8px;        /* Esquinas redondeadas */
+        padding: 10px;              /* Padding interno */
+        padding-bottom: 20px;
+    }
+            
+    /* Cambiar color de los labels de los campos a blanco */
+    label, .stCheckbox > div {
+        color: white !important;
+        font-weight: bold;
+    }
+
+    .stMarkdown p {
+        color: white;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 def manejar_redistribucion():
     """Maneja la redistribución de montos entre semanas cuando se envía el formulario"""
     gasto_frec = st.session_state.gasto_frec
